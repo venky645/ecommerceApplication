@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "183402312874",
+    "project_id": "ecommerceassaignment",
+    "storage_bucket": "ecommerceassaignment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:183402312874:android:f6778f1450dd1ec496ccd3",
+        "android_client_info": {
+          "package_name": "com.example.academy_course"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_LJWakz_Ah7tY3P1mTe_Ay36SLKg9AEw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
