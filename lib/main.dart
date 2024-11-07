@@ -60,8 +60,6 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/splash',
         routes: {
-          // '/': (context) => TestingView(),
-          // '/splash' : (context) => CurvedAnimationExample(),
           '/splash': (context) => const SplashView(),
           '/signup': (context) => const SignUpView(),
           '/login': (context) => const LoginView(),
