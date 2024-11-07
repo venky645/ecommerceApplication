@@ -4,17 +4,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../provider/api_provider.dart';
 import '../../provider/pagination_provider.dart';
 
-
 class PaginationView extends ConsumerWidget {
   const PaginationView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     final pageNumber = ref.watch(paginationProvider);
-    final products = ref.watch(productsProvider);
+    // final products = ref.watch(productsProvider);
     // Checking whether products are available on the next page or not
-    final hasNextPage = _hasNextPage(pageNumber, products.value?.length);
+    // final hasNextPage = _hasNextPage(pageNumber, products.value?.length);
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
@@ -23,7 +21,9 @@ class PaginationView extends ConsumerWidget {
         children: [
           IconButton(
             icon: const Icon(Icons.arrow_back),
-            onPressed: pageNumber > 1 ? () => ref.read(paginationProvider.notifier).decrementPage() : null,
+            onPressed: pageNumber > 1
+                ? () => ref.read(paginationProvider.notifier).decrementPage()
+                : null,
           ),
           Text(
             'Page $pageNumber',
@@ -31,10 +31,10 @@ class PaginationView extends ConsumerWidget {
           ),
           IconButton(
             icon: const Icon(Icons.arrow_forward),
-            onPressed:
-            hasNextPage
-                ? () => ref.read(paginationProvider.notifier).increment()
-                : null,
+            onPressed: () {},
+            // hasNextPage
+            //     ? () => ref.read(paginationProvider.notifier).increment()
+            //     : null,
           ),
         ],
       ),

@@ -5,7 +5,6 @@ import 'package:http/http.dart' as http;
 
 class ApiService implements BaseApiService {
   @override
-  @override
   Future<List<Product>?> getProducts(String url) async {
     print('step 1');
     List<Product> products = [];

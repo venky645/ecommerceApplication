@@ -1,12 +1,11 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:academy_course/model/product_model.dart';
-import 'package:academy_course/service/ApiService.dart';
-import 'package:riverpod/riverpod.dart';
+import '../data/network/api_service.dart';
+import '../model/product.dart';
 
-
-final productsProvider = FutureProvider<List<Product>>((ref) async{
-    final apiService = ref.read(apiServiceProvider);
-    return apiService.getResponse();
-});
+// final productsProvider = FutureProvider<List<Product>>((ref) async {
+//   final apiService = ref.read(apiServiceProvider);
+//   return apiService.getProducts(url);
+// });
 
 final apiServiceProvider = Provider((ref) => ApiService());

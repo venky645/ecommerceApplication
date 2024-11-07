@@ -1,4 +1,3 @@
-import 'package:academy_course/presentation/widgets/pagination_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -7,6 +6,7 @@ import '../constants/constants.dart';
 import '../mediaQuery/mediaquery_helper.dart';
 import '../presentation/widgets/product_card.dart';
 import '../provider/api_provider.dart';
+import 'widgets/pagination_view.dart';
 
 class ProductsView extends ConsumerStatefulWidget {
   const ProductsView({Key? key}) : super(key: key);
@@ -20,13 +20,13 @@ class _ProductsViewState extends ConsumerState<ProductsView> {
 
   @override
   Widget build(BuildContext context) {
-    final products = ref.watch(productsProvider);
+    final products = [];
     final pageNumber = ref.watch(paginationProvider);
 
     final startIndex = (pageNumber - 1) * _pageSize;
     final endIndex = startIndex + _pageSize;
 
-    final currentPageProducts = products.value?.sublist(startIndex, endIndex);
+    final currentPageProducts = [];
 
     return Scaffold(
       backgroundColor: const Color(0xFFF9F5F4),
