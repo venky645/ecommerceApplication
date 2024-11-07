@@ -1,11 +1,8 @@
-import 'package:ecommerce_app/db/remote/firestore_db.dart';
 import 'package:ecommerce_app/db/local/data_base_helper.dart';
-import 'package:ecommerce_app/model/product.dart';
+import 'package:ecommerce_app/model/cart_model.dart';
 import 'package:ecommerce_app/presentation/my_cart_view/bloc/cart_bloc_event.dart';
 import 'package:ecommerce_app/presentation/my_cart_view/bloc/cart_bloc_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../model/cart_model.dart';
 
 class CartBloc extends Bloc<CartEvent, CartState> {
   CartBloc() : super(CartInitial()) {

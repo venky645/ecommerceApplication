@@ -1,21 +1,21 @@
+
+
 import 'package:ecommerce_app/db/local/data_base_helper.dart';
 import 'package:ecommerce_app/model/cart_model.dart';
 import 'package:ecommerce_app/model/product.dart';
 import 'package:ecommerce_app/presentation/my_cart_view/bloc/cart_bloc.dart';
-import 'package:ecommerce_app/presentation/my_cart_view/bloc/cart_bloc_state.dart';
+import 'package:ecommerce_app/presentation/my_cart_view/bloc/cart_bloc_event.dart';
 import 'package:ecommerce_app/presentation/product_detail/bloc/cubit/product_detail_cubit.dart';
 import 'package:ecommerce_app/presentation/product_detail/bloc/product_detail_bloc/product_detail_bloc.dart';
 import 'package:ecommerce_app/presentation/product_detail/bloc/product_detail_bloc/product_detail_event.dart';
 import 'package:ecommerce_app/presentation/product_detail/bloc/product_detail_bloc/product_detail_state.dart';
 import 'package:ecommerce_app/presentation/product_detail/widgets/add_to_cart_view.dart';
+import 'package:ecommerce_app/presentation/product_detail/widgets/review_section.dart';
+import 'package:ecommerce_app/presentation/widgets/cart_badge.dart';
 import 'package:ecommerce_app/utils/discount_calculation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../my_cart_view/bloc/cart_bloc_event.dart';
-import '../widgets/cart_badge.dart';
-import 'widgets/review_section.dart';
 
 class ProductDetailView extends StatefulWidget {
   ProductDetailView({super.key});
