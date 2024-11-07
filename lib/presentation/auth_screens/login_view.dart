@@ -4,9 +4,7 @@ import 'package:ecommerce_app/presentation/auth_screens/login_bloc/login_event.d
 import 'package:ecommerce_app/presentation/auth_screens/login_bloc/login_state.dart';
 import 'package:ecommerce_app/presentation/auth_screens/sign_up_bloc/sign_up_bloc.dart';
 import 'package:ecommerce_app/presentation/auth_screens/sign_up_bloc/sign_up_state.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginView extends StatefulWidget {
