@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:bloc/bloc.dart';
 import 'package:ecommerce_app/data/service/firebase_auth_service.dart';
 import 'package:ecommerce_app/presentation/auth_screens/login_bloc/login_event.dart';

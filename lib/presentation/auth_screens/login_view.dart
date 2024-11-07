@@ -4,7 +4,6 @@ import 'package:ecommerce_app/presentation/auth_screens/login_bloc/login_event.d
 import 'package:ecommerce_app/presentation/auth_screens/login_bloc/login_state.dart';
 import 'package:ecommerce_app/presentation/auth_screens/sign_up_bloc/sign_up_bloc.dart';
 import 'package:ecommerce_app/presentation/auth_screens/sign_up_bloc/sign_up_state.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -29,7 +28,7 @@ class _LoginViewState extends State<LoginView> {
         listener: (context, state) {
           if (state is LogInSuccess) {
             ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('login Successfull')));
+                const SnackBar(content: Text('login  Successfull')));
             Navigator.pushNamed(context, '/home');
           } else if (state is LogInFailure) {
             alertDialog();
