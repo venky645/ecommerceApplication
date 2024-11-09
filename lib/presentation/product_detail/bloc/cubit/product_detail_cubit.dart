@@ -1,6 +1,4 @@
 import 'package:ecommerce_app/db/local/data_base_helper.dart';
-import 'package:ecommerce_app/db/remote/firestore_db.dart';
-import 'package:ecommerce_app/model/product.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -9,10 +7,8 @@ part 'producs_detail_state.dart';
 class ProductDetailCubit extends Cubit<ProductDetailState> {
   ProductDetailCubit() : super(ProductDetailState.intial());
 
-  void updateProductThumbnail(String productId) async {
-    Product? product =
-        await FireStoreDataBase.instance?.getProductById(productId);
-    emit(state.copyWith(productImage: product!.thumbnail));
+  void updateProductThumbnail(String productImage) async {
+    emit(state.copyWith(productImage: productImage));
   }
 
   void addItemToCart() async {
