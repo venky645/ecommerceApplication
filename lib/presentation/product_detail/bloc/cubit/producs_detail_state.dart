@@ -1,17 +1,17 @@
 part of 'product_detail_cubit.dart';
 
 class ProductDetailState extends Equatable {
-  bool isItemAddedToCart;
-  String productThumbnail;
-  int productQuantity;
+  final bool isItemAddedToCart;
+  final String productThumbnail;
+  final int productQuantity;
 
-  ProductDetailState(
+  const ProductDetailState(
       {required this.isItemAddedToCart,
       required this.productQuantity,
       required this.productThumbnail});
 
   factory ProductDetailState.intial() {
-    return ProductDetailState(
+    return const ProductDetailState(
         isItemAddedToCart: false, productQuantity: 0, productThumbnail: '');
   }
 
