@@ -31,7 +31,7 @@ class _MyCartViewState extends State<MyCartView> {
       backgroundColor: const Color(0xF5F9F9F5),
       appBar: AppBar(
         title: const Text(
-          'My cart',
+          'My Cart',
           style: TextStyle(
               color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
         ),

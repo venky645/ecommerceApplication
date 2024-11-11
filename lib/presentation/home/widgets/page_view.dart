@@ -37,6 +37,12 @@ class _PageViewWidgetState extends State<PageViewWidget> {
   }
 
   @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return PageView(
       onPageChanged: (int pageNumber) {

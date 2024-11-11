@@ -6,7 +6,6 @@ import 'package:ecommerce_app/presentation/my_cart_view/MyCartView.dart';
 import 'package:ecommerce_app/presentation/my_cart_view/bloc/cart_bloc.dart';
 import 'package:ecommerce_app/presentation/product_detail/bloc/cubit/product_detail_cubit.dart';
 import 'package:ecommerce_app/presentation/product_detail/bloc/product_detail_bloc/product_detail_bloc.dart';
-import 'package:ecommerce_app/presentation/product_detail/bloc/product_detail_bloc/product_detail_state.dart';
 import 'package:ecommerce_app/presentation/product_detail/product_detail_view.dart';
 import 'package:ecommerce_app/presentation/profile_view/bloc/profile_cubit.dart';
 import 'package:ecommerce_app/presentation/profile_view/profile_view.dart';

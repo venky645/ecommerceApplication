@@ -21,7 +21,8 @@ class CartQuantityHandlerView extends StatelessWidget {
             width: 40,
             child: ElevatedButton(
                 onPressed: () {
-                  BlocProvider.of<CartBloc>(context)
+                  context
+                      .read<CartBloc>()
                       .add(DecrementCartQuantity(productId: '${product.id}'));
                 },
                 style: ElevatedButton.styleFrom(
@@ -47,7 +48,6 @@ class CartQuantityHandlerView extends StatelessWidget {
                 return Text('${cartProduct.quantity}');
               } else if (state is CartQuantity &&
                   state.productId == '${product.id}') {
-                print("hello abcs");
                 return Text('${state.productQuantity}');
               } else {
                 return const SizedBox.shrink();
@@ -63,18 +63,18 @@ class CartQuantityHandlerView extends StatelessWidget {
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
-                  side: BorderSide(
+                  side: const BorderSide(
                     color: Colors.green,
-                    width: 1, // Adjust border width if needed
+                    width: 1,
                   ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.add,
                   size: 15,
-                  color: Colors.green, // Color of the icon
+                  color: Colors.green,
                 ),
               )),
         ],

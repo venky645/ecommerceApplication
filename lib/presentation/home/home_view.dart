@@ -194,7 +194,7 @@ class _HomeViewState extends State<HomeView> {
 
   void showAlertDialog(BuildContext context, String title, String message) {
     // set up the buttons
-    Widget continueButton = ElevatedButton(
+    ElevatedButton(
       child: const Text("Continue"),
       onPressed: () {},
     );
