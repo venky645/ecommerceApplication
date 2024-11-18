@@ -23,9 +23,9 @@ class _ProfileViewState extends State<ProfileView> {
   Widget build(BuildContext context) {
     BlocProvider.of<ProfileCubit>(context).fetchUserDetails();
     return Scaffold(
-      backgroundColor: Color(0xF5F9F9F5),
+      backgroundColor: const Color(0xF5F9F9F5),
       appBar: AppBar(
-        backgroundColor: Color(0xF5F9F9F5),
+        backgroundColor: const Color(0xF5F9F9F5),
         elevation: 0,
       ),
       body: SizedBox(
@@ -59,7 +59,7 @@ class _ProfileViewState extends State<ProfileView> {
                 return Text(state.email);
               },
             ),
-            ElevatedButton(onPressed: () {}, child: Text('edit profile')),
+            ElevatedButton(onPressed: (){}, child: Text('edit profile')),
             Divider(
               endIndent: 20,
               indent: 20,

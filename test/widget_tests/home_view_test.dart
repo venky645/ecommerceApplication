@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:ecommerce_app/db/remote/firestore_db.dart';
 import 'package:ecommerce_app/presentation/home/home_bloc/home_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,7 +13,7 @@ void main(){
   testWidgets('testing home screen', (widgetTester) async {
     await widgetTester.pumpWidget(
        BlocProvider<HomeBloc>(
-           create: (context) => HomeBloc(),
+           create: (context) => HomeBloc(fireStoreDataBase: FireStoreDataBase()),
        child: MaterialApp(
          home: HomeView()),
        )

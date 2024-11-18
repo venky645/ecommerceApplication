@@ -20,10 +20,3 @@ class SubmitReview extends ProductDetailEvent {
   @override
   List<Object?> get props => [review];
 }
-
-// class UpdateProductReview extends ProductDetailEvent {
-//   final int reviewCount;
-//   const UpdateProductReview({required this.reviewCount});
-//   @override
-//   List<Object?> get props => [reviewCount];
-// }

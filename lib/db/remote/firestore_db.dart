@@ -6,11 +6,11 @@ import 'package:ecommerce_app/model/product.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class FireStoreDataBase implements BaseFireStoreServices {
-  static final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  late final FirebaseFirestore _firestore;
 
-  static final FireStoreDataBase _instance = FireStoreDataBase._internal();
+  static final FireStoreDataBase _instance = FireStoreDataBase._internal(FirebaseFirestore.instance);
 
-  FireStoreDataBase._internal();
+  FireStoreDataBase._internal(this._firestore);
 
   factory FireStoreDataBase() {
     return _instance;

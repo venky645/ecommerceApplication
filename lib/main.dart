@@ -1,9 +1,13 @@
+import 'package:ecommerce_app/data/service/firebase_auth_service.dart';
+import 'package:ecommerce_app/db/local/data_base_helper.dart';
+import 'package:ecommerce_app/db/remote/firestore_db.dart';
 import 'package:ecommerce_app/presentation/auth_screens/login_bloc/login_bloc.dart';
 import 'package:ecommerce_app/presentation/auth_screens/sign_upView.dart';
 import 'package:ecommerce_app/presentation/home/home_bloc/home_bloc.dart';
 import 'package:ecommerce_app/presentation/home/home_view.dart';
 import 'package:ecommerce_app/presentation/my_cart_view/MyCartView.dart';
 import 'package:ecommerce_app/presentation/my_cart_view/bloc/cart_bloc.dart';
+import 'package:ecommerce_app/presentation/my_cart_view/bloc/cart_bloc_event.dart';
 import 'package:ecommerce_app/presentation/product_detail/bloc/cubit/product_detail_cubit.dart';
 import 'package:ecommerce_app/presentation/product_detail/bloc/product_detail_bloc/product_detail_bloc.dart';
 import 'package:ecommerce_app/presentation/product_detail/product_detail_view.dart';
@@ -16,7 +20,6 @@ import 'package:flutter/material.dart';
 import 'package:ecommerce_app/presentation/auth_screens/login_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'presentation/auth_screens/sign_up_bloc/sign_up_bloc.dart';
 
 void main() async {
@@ -39,16 +42,15 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<LoginBloc>(create: (context) => LoginBloc()),
-        BlocProvider<HomeBloc>(create: (context) => HomeBloc()),
+        BlocProvider<HomeBloc>(create: (context) => HomeBloc(fireStoreDataBase: FireStoreDataBase())),
         BlocProvider<ProductDetailCubit>(
-            create: (context) => ProductDetailCubit()),
-        BlocProvider<CartBloc>(create: (context) => CartBloc()),
+            create: (context) => ProductDetailCubit(dataBaseHelper: DataBaseHelper())),
+        BlocProvider<CartBloc>(create: (context) => CartBloc()..add(GetAllCartProducts())),
         BlocProvider<CounterBloc>(create: (context) => CounterBloc()),
-        BlocProvider<ProfileCubit>(create: (context) => ProfileCubit()),
+        BlocProvider<ProfileCubit>(create: (context) => ProfileCubit(firebaseAuthService: FirebaseAuthService())),
         BlocProvider<SignUpBloc>(create: (context) => SignUpBloc()),
-        BlocProvider<ProductDetailBloc>(
-          create: (context) => ProductDetailBloc(),
-        )
+        BlocProvider<ProductDetailBloc>(create: (context) => ProductDetailBloc(fireStoreDataBase: FireStoreDataBase.instance),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -65,7 +67,7 @@ class MyApp extends StatelessWidget {
           '/home': (context) => const HomeView(),
           '/productDetailView': (context) => ProductDetailView(),
           '/myCart': (context) => const MyCartView(),
-          '/profile': (context) => const ProfileView()
+          '/profile': (context) => const ProfileView(),
         },
       ),
     );

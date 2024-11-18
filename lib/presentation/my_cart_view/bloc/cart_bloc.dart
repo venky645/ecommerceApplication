@@ -10,21 +10,26 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       emit(CartLoading());
       try {
         List<Cart> products = await DataBaseHelper().getALlCartProducts();
-        emit(CartSuccess(products: products));
-        double cartTotal = await DataBaseHelper().cartTotal();
-        emit(CartTotal(cartTotal: cartTotal));
+        if(products.isNotEmpty){
+          emit(CartSuccess(products: products));
+          emit(CartCount(cartCount: products.length));
+          // double cartTotal = await DataBaseHelper().cartTotal();
+          // emit(CartTotal(cartTotal: cartTotal));
+        }
+
       } catch (e) {
         emit(CartError(e.toString()));
       }
     });
 
     on<AddProductToCart>((event, emit) async {
+      print('add to cart event is triggered');
       try {
         List<Cart> cartProducts = await DataBaseHelper().getALlCartProducts();
-        print('hey hi how are u : ${cartProducts.length}');
+        emit(CartLoading());
         emit(CartCount(cartCount: cartProducts.length));
         double cartTotal = await DataBaseHelper().cartTotal();
-        emit(CartTotal(cartTotal: cartTotal));
+        // emit(CartTotal(cartTotal: cartTotal));
       } catch (e) {
         emit(CartError(e.toString()));
       }

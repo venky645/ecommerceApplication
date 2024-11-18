@@ -4,7 +4,6 @@ import 'package:ecommerce_app/presentation/my_cart_view/bloc/cart_bloc_state.dar
 import 'package:ecommerce_app/presentation/my_cart_view/widgets/my_cart_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'widgets/cart_bottom_sheet_view.dart';
 
 class MyCartView extends StatefulWidget {

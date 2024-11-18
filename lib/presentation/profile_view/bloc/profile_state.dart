@@ -1,8 +1,14 @@
-class ProfileState {
+import 'package:equatable/equatable.dart';
+
+class ProfileState extends Equatable{
   String profileImage;
   String name;
   String email;
   String phoneNumber;
+
+
+  @override
+  List<Object?> get props => [profileImage,name,email,phoneNumber];
 
   ProfileState(
       {this.profileImage = '',

@@ -3,10 +3,6 @@ import 'package:ecommerce_app/presentation/product_detail/widgets/add_to_cart_vi
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-
-import '../../../db/local/data_base_helper.dart';
-import '../../../model/cart_model.dart';
 import '../../../utils/discount_calculation.dart';
 import '../../my_cart_view/bloc/cart_bloc.dart';
 import '../../my_cart_view/bloc/cart_bloc_event.dart';
@@ -79,38 +75,17 @@ class _ProductDetailBottomSheetViewState
           AddToCartView(
             productId: widget.product.id.toString(),
             addProductToCart: () {
-              addProductToCart(widget.product);
+              context.read<ProductDetailCubit>().addItemToCart(
+                widget.product,
+                    () {
+                  context.read<CartBloc>().add(AddProductToCart()
+                  );
+                },
+              );
             },
           ),
         ],
       ),
     );
-  }
-
-  Future<void> addProductToCart(Product product) async {
-    try {
-      Cart cartItem = Cart(
-          id: product.id,
-          title: product.title,
-          thumbnail: product.thumbnail,
-          price: product.price as double,
-          quantity: 1,
-          brand: product.brand,
-          discountPercentage: product.discountPercentage as double);
-
-      int productID = await DataBaseHelper().insertItem(cartItem.toJson());
-      if (productID != 0) {
-        if (mounted) {
-          context.read<ProductDetailCubit>().addItemToCart();
-          context.read<CartBloc>().add(AddProductToCart());
-        }
-      } else {
-        Fluttertoast.showToast(
-            msg: 'some issue occured while adding item to cart');
-      }
-    } catch (e) {
-      print(e.toString());
-      Fluttertoast.showToast(msg: e.toString());
-    }
   }
 }

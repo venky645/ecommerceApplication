@@ -1,6 +1,4 @@
 import 'package:ecommerce_app/model/product.dart';
-import 'package:ecommerce_app/presentation/my_cart_view/bloc/cart_bloc.dart';
-import 'package:ecommerce_app/presentation/my_cart_view/bloc/cart_bloc_event.dart';
 import 'package:ecommerce_app/presentation/product_detail/bloc/cubit/product_detail_cubit.dart';
 import 'package:ecommerce_app/presentation/product_detail/bloc/product_detail_bloc/product_detail_bloc.dart';
 import 'package:ecommerce_app/presentation/product_detail/bloc/product_detail_bloc/product_detail_event.dart';
@@ -58,7 +56,7 @@ class _ProductDetailViewState extends State<ProductDetailView>
       onPopInvoked: (didPop) {
         if (didPop) {
           print('successfully poped');
-          BlocProvider.of<CartBloc>(context).add(AddProductToCart());
+          // BlocProvider.of<CartBloc>(context).add(AddProductToCart());
         } else {
           print('un-successfull poped');
         }

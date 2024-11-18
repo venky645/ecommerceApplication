@@ -42,15 +42,15 @@ class _ReviewsSectionState extends State<ReviewsSection> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       RatingBarIndicator(
-                        rating: review['rating'],
+                        rating: review['rating'].toDouble(),
                         itemBuilder: (context, index) {
-                          return Icon(
+                          return const Icon(
                             Icons.star,
                             color: Colors.amber,
                           );
                         },
                         itemCount: 5,
-                        itemSize: 50.0,
+                        itemSize: 30.0,
                         unratedColor: Colors.grey[300],
                       ),
 

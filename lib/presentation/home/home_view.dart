@@ -6,12 +6,11 @@ import 'package:ecommerce_app/presentation/home/home_bloc/home_state.dart';
 import 'package:ecommerce_app/presentation/home/widgets/page_view.dart';
 import 'package:ecommerce_app/presentation/home/widgets/product_view.dart';
 import 'package:ecommerce_app/presentation/home/widgets/search_bar_view.dart';
-import 'package:ecommerce_app/presentation/my_cart_view/bloc/cart_bloc.dart';
-import 'package:ecommerce_app/presentation/my_cart_view/bloc/cart_bloc_event.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
+import '../widgets/bloc_global_access_testing.dart';
 import '../widgets/bottom_navigation_bar.dart';
 import '../widgets/cart_badge.dart';
 import 'widgets/category_filterView.dart';
@@ -40,7 +39,7 @@ class _HomeViewState extends State<HomeView> {
 
   void loadAllTheProducts() async {
     context.read<HomeBloc>().add(FetchAllProducts());
-    context.read<CartBloc>().add(AddProductToCart());
+    // context.read<CartBloc>().add(AddProductToCart());
   }
 
   void paymentIntegrationByRazor() {
@@ -58,7 +57,7 @@ class _HomeViewState extends State<HomeView> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Row(
@@ -92,7 +91,7 @@ class _HomeViewState extends State<HomeView> {
 
                           razorpay.open(options);
                         },
-                        child: Text('Welcome',
+                        child: const Text('Welcome',
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 25,

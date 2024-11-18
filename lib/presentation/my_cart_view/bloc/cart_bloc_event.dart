@@ -19,4 +19,6 @@ class RemoveProductFromCart extends CartEvent {
 
 class SampleEvent extends CartEvent {}
 
-class AddProductToCart extends CartEvent {}
+class AddProductToCart extends CartEvent {
+
+}
