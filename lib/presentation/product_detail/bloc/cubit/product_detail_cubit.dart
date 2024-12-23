@@ -1,4 +1,3 @@
-
 import 'package:ecommerce_app/db/local/data_base_helper.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,20 +8,20 @@ import '../../../../model/cart_model.dart';
 import '../../../../model/product.dart';
 import '../../../my_cart_view/bloc/cart_bloc.dart';
 import '../../../my_cart_view/bloc/cart_bloc_event.dart';
-import '../../../widgets/testing_bloc_access/CartTestingBloc.dart';
-import '../../../widgets/testing_bloc_access/cart_event_testing.dart';
 
 part 'producs_detail_state.dart';
 
 class ProductDetailCubit extends Cubit<ProductDetailState> {
   final DataBaseHelper dataBaseHelper;
-  ProductDetailCubit({required this.dataBaseHelper}) : super(ProductDetailState.intial());
+  ProductDetailCubit({required this.dataBaseHelper})
+      : super(ProductDetailState.intial());
 
   void updateProductThumbnail(String productImage) async {
     emit(state.copyWith(productImage: productImage));
   }
 
-  Future<void> addItemToCart(Product product,VoidCallback addToCartCallBck) async {
+  Future<void> addItemToCart(
+      Product product, VoidCallback addToCartCallBck) async {
     try {
       Cart cartItem = Cart(
           id: product.id,
@@ -35,8 +34,9 @@ class ProductDetailCubit extends Cubit<ProductDetailState> {
 
       int productID = await dataBaseHelper.insertItem(cartItem.toJson());
       if (productID != 0) {
-         addToCartCallBck();
-         emit(state.copyWith(isProductAddedToCart: true, productCartQuantity: 1));
+        addToCartCallBck();
+        emit(
+            state.copyWith(isProductAddedToCart: true, productCartQuantity: 1));
       } else {
         //TODO: need to separate this UI from the logic
         // Fluttertoast.showToast(

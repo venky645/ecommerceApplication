@@ -1,4 +1,3 @@
-import 'package:ecommerce_app/utils/Flutter_Animation_View.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -14,27 +13,26 @@ class LoginViewIntegration extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextField(
-          controller: userNameController,
-
+            controller: userNameController,
             key: const Key('user_name'),
-            style: TextStyle(
-              backgroundColor: Colors.green
-
-            ),
+            style: TextStyle(backgroundColor: Colors.green),
           ),
           TextField(
             controller: passwordController,
             key: const Key('password'),
           ),
-
           ElevatedButton(
               onPressed: () {
                 print('username :  ${userNameController.text}');
                 print('password :  ${userNameController.text}');
-                if(userNameController.text == 'userName' && passwordController.text == 'password'){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => FlutterAnimationView() ));
+                if (userNameController.text == 'userName' &&
+                    passwordController.text == 'password') {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return SizedBox();
+                  }));
                 }
-              }, child: Text('submit'))
+              },
+              child: Text('submit'))
         ],
       ),
     );
